@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<body>
+    <div class="container2">
+        <h1>Update Order</h1>
+        <form action="{% url 'upOrder' order.id %}" method="post">
+            {% csrf_token %}
+            <label for="">First name</label><br><br>
+            <input type="text" name="first" value="{{mem.firstname}}"><br><br>
+            <label for="">Last name</label><br><br>
+            <input type="text" name="last" value="{{mem.lastname}}"><br><br>
+            <label for="">Address</label><br><br>
+            <input type="text" name="address" value="{{mem.address}}"><br><br>
+            <label for="">City</label><br><br>
+            <input type="text" name="city" value="{{mem.city}}"><br><br>
+            <label for="">State</label><br><br>
+            <input type="text" name="state" value="{{mem.state}}"><br><br>
+            <label for="">zip code</label><br><br>
+            <input type="text" name="zip" value="{{mem.zipcode}}"><br><br>
+            <label for="">Country</label><br><br>
+            <input type="text" name="country" value="{{mem.country}}"><br><br>
+            <button type="submit" id="new1">Update</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

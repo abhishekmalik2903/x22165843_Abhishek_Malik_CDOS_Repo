@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<body>
+    <div class="container">
+        <h1>Your Orders</h1>
+        <table id="customers" border="1">
+            <thead>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Country</th>
+                <th>Member ID</th>
+                <th colspan="2" id="mid">Action</th>
+            </thead>
+            {% for x in orders %}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.firstname}}</td>
+                <td>{{x.lastname}}</td>
+                <td>{{x.address}}</td>
+                <td>{{x.city}}</td>
+                <td>{{x.state}}</td>
+                <td>{{x.zipcode}}</td>
+                <td>{{x.country}}</td>
+                <td>{{x.orderid}}</td>
+                <td>
+                    <a href="updateOrder/{{x.id}}"><button id="up">update</button></a>
+                </td>
+                <td>
+                    <a href="deleteOrder/{{x.id}}"><button id="del" onclick="alert('Sure')">delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="{% url 'add' %}"><button id="new3">Add Member</button></a>
+    </div>
+    <script type="text/javascript">
+        
+    </script>
+</body>
+
+</html>
