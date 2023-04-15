@@ -11,9 +11,9 @@ phases:
     pre_build:
         commands:
             - python --version
-            - pylint $CODEBUILD_SRC_DIR/*.py
-            - pylint $CODEBUILD_SRC_DIR/mypro/*.py
-            - pylint $CODEBUILD_SRC_DIR/newapp/*.py
+            - pylint *.py
+            - pylint mypro/*.py
+            - pylint newapp/*.py
             
 artifacts:
     files:
