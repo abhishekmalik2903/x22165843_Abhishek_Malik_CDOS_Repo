@@ -3,8 +3,11 @@ phases:
   install:
     runtime-versions:
       java: corretto8
+      python: 3.7
   pre_build:
     commands:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
       - apt-get update
       - apt-get install -y jq
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
