@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       - pip install --upgrade pip
-      - pip install -r requirements.txt
+      - pip install -r requirements.txt pylint
       - apt-get update
       - apt-get install -y jq
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
@@ -18,6 +18,7 @@ phases:
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
   build:
     commands:
+      - pylint --disable=E0611,E0401,E1101,W0621,C0103,W0622,W0613,W0702,W0612,C0326,C0303,C0115,C0304,C0114,C0301,C0410,W0611 *.py **/*.py
       - mvn sonar:sonar -e "-Dsonar.login=5eefd53855316407ac2f50d231e0cf654fdfc932" "-Dsonar.host.url=https://sonarcloud.io" "-Dsonar.projectKey=abhishekmalik2903" "-Dsonar.organization=abhishekmalik2903" "-DgeneratePom=true"
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=abhishekmalik2903 >result.json
