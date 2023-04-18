@@ -23,5 +23,6 @@ urlpatterns = [
     path('addorderLoggedIn/',views.addorderLoggedIn,name="addorderLoggedIn"),
     path('login/single_product/<str:id>',views.single_productLoggedIn,name="single_productLoggedIn"),
     path('myOrders/<str:id>',views.myOrders,name="myOrders"),
-    path('addorderLoggedIn/myOrders/<str:id>',views.myOrders,name="myOrders")
+    path('addorderLoggedIn/myOrders/<str:id>',views.myOrders,name="myOrders"),
+    path('/myOrders/deleteOrder/<str:id>',views.deleteOrder,name="deleteMyOrders")
 ]
